@@ -1,5 +1,6 @@
 package com.example.eztask;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
@@ -23,15 +24,16 @@ public class TaskMenuActivity extends AppCompatActivity {
         Button btnAddTask = findViewById(R.id.btnAddTask);
         Button btnViewTasks = findViewById(R.id.btnViewTasks);
 
-        // Más adelante conectaremos estos botones a AddTaskActivity y ViewTasksActivity
+        // ✅ Abrir pantalla para Agregar Tarea
         btnAddTask.setOnClickListener(v -> {
-            Toast.makeText(this, "Abrir pantalla para Agregar Tarea", Toast.LENGTH_SHORT).show();
-            // startActivity(new Intent(TaskMenuActivity.this, AddTaskActivity.class));
+            Intent intent = new Intent(TaskMenuActivity.this, AddTaskActivity.class);
+            startActivity(intent);
         });
 
+        // (Por ahora, Ver Tareas queda pendiente. Lo conectaremos luego)
         btnViewTasks.setOnClickListener(v -> {
             Toast.makeText(this, "Abrir pantalla para Ver Tareas", Toast.LENGTH_SHORT).show();
-            // startActivity(new Intent(TaskMenuActivity.this, ViewTasksActivity.class));
+            // Más adelante: startActivity(new Intent(TaskMenuActivity.this, ViewTasksActivity.class));
         });
     }
 }
