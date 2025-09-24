@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Eztask">
         <activity
+            android:name=".ViewTasksActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddTaskActivity"
             android:exported="false" />
         <activity
