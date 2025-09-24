@@ -14,7 +14,7 @@ public class TaskMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_menu);
 
-        // Saludo inicial (solo una vez al entrar)
+        // Saludo inicial
         String username = getIntent().getStringExtra("username");
         if (username != null && !username.isEmpty()) {
             Toast.makeText(this, "Bienvenido " + username, Toast.LENGTH_SHORT).show();
