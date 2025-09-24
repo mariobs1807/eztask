@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ViewTasksActivity extends AppCompatActivity {
@@ -18,11 +20,11 @@ public class ViewTasksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_tasks);
 
-        // Referencias a vistas (IDs del XML: lvTasks y btnBack)
+        // Referencias
         lvTasks = findViewById(R.id.lvTasks);
         btnBack = findViewById(R.id.btnBack);
 
-        // Adaptador que muestra lo guardado en AddTaskActivity.taskList (memoria)
+        // Adaptador con la lista en memoria
         adapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
@@ -30,14 +32,31 @@ public class ViewTasksActivity extends AppCompatActivity {
         );
         lvTasks.setAdapter(adapter);
 
-        // Botón "Volver": cierra esta Activity y regresa al menú (TaskMenuActivity)
+        // Long press: marcar como "lista" (eliminar)
+        lvTasks.setOnItemLongClickListener((parent, view, position, id) -> {
+            String tarea = AddTaskActivity.taskList.get(position);
+
+            new AlertDialog.Builder(this)
+                    .setTitle("¿Tarea lista?")
+                    .setMessage("Marcar como completada y eliminar:\n\n• " + tarea)
+                    .setPositiveButton("Sí, completar", (d, w) -> {
+                        AddTaskActivity.taskList.remove(position);
+                        adapter.notifyDataSetChanged();
+                        Toast.makeText(this, "Tarea completada ✔", Toast.LENGTH_SHORT).show();
+                    })
+                    .setNegativeButton("Cancelar", null)
+                    .show();
+
+            return true; // consumimos el evento del long-press
+        });
+
+        // Botón Volver
         btnBack.setOnClickListener(v -> finish());
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        // Si se agregaron nuevas tareas, refresca la lista
         if (lvTasks.getAdapter() != null) {
             adapter.notifyDataSetChanged();
         }
