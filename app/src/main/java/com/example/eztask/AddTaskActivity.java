@@ -28,10 +28,11 @@ public class AddTaskActivity extends AppCompatActivity {
             String name = etTaskName.getText().toString().trim();
             int stars = (int) rbPriority.getRating();
 
+            // ✅ Validación: que el campo no esté vacío
             if (name.isEmpty()) {
-                etTaskName.setError("Ingresa un nombre para la tarea");
+                etTaskName.setError("Ingresa el nombre de la tarea");
                 etTaskName.requestFocus();
-                return;
+                return; // no guarda
             }
 
             // Guardamos como texto simple: "Nombre ⭐x"

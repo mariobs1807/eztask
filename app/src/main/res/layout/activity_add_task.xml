@@ -32,7 +32,6 @@
         android:ems="10"
         android:hint="Nombre de la Tarea"
         android:inputType="text"
-        android:text="Tarea"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

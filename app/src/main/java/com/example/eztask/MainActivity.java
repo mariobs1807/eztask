@@ -37,22 +37,27 @@ public class MainActivity extends AppCompatActivity {
             String user = etUser.getText().toString().trim();
             String pass = etPassword.getText().toString().trim();
 
-            // Validaciones mínimas (no vacíos)
-            if (TextUtils.isEmpty(user)) {
-                etUser.setError("Ingresa usuario o correo");
+            // Validar campo usuario
+            if (TextUtils.isEmpty(user) || user.equalsIgnoreCase("ingresa usuario")) {
+                etUser.setError("Usuario inválido");
                 etUser.requestFocus();
                 return;
             }
+
+            // Validar campo contraseña
             if (TextUtils.isEmpty(pass)) {
                 etPassword.setError("Ingresa la contraseña");
                 etPassword.requestFocus();
                 return;
             }
 
-            // Login abierto: si no están vacíos, continuar
+            // si los campos son válidos, continuar
             Intent intent = new Intent(MainActivity.this, TaskMenuActivity.class);
             intent.putExtra("username", user); // enviamos el nombre del usuario
             startActivity(intent);
+
+            // Mensaje de bienvenida
+            Toast.makeText(this, "Bienvenido " + user, Toast.LENGTH_SHORT).show();
         });
     }
 }
