@@ -58,17 +58,9 @@ Arquitectura: Activities + Intents
 
 UI creada con Palette (arrastrar/soltar) y ajustes puntuales en XML
 
-▶️ Cómo ejecutar
 
-Clona el repositorio y ábrelo en Android Studio.
 
-Espera a que finalice el Gradle Sync.
-
-En Device Manager, inicia un emulador (por ejemplo Pixel 7) o conecta un dispositivo físico con Depuración USB.
-
-Presiona Run ▶ para compilar e instalar.
-
-📂 Estructura (resumen)
+📂 Estructura 
 app/src/main/java/com/example/eztask/
 ├── MainActivity.java          // Login
 ├── TaskMenuActivity.java      // Menú principal
@@ -111,15 +103,5 @@ docs/view_tasks.png
 El almacenamiento de tareas es volátil (en memoria).
 
 Si se requiere persistencia entre sesiones, puede añadirse SharedPreferences o Room en una versión posterior.
-
-🎯 Objetivo académico
-
-Construcción de interfaces con Palette.
-
-Manejo de Intents y ciclo de vida de Activities.
-
-Validaciones básicas de entrada de datos.
-
-Navegación simple y uso de componentes estándar (EditText, Button, RatingBar, ListView).
 
 👨‍💻 Proyecto desarrollado como evidencia práctica para la Evaluación N°1 de Programación Android.
