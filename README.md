@@ -76,7 +76,7 @@ app/src/main/res/layout/
 ├── activity_add_task.xml
 └── activity_view_tasks.xml
 
-🧪 Comportamiento esperado (flujo)
+🧪 Comportamiento esperado 
 
 Login: ingresar usuario y contraseña → validación.
 
