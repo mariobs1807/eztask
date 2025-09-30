@@ -86,18 +86,6 @@ Agregar Tarea: escribir nombre + (opcional) estrellas → Guardar.
 
 Ver Tareas: listado de tareas guardadas → Volver regresa al menú.
 
-📸 Capturas (opcional)
-
-Puedes agregar imágenes del flujo en esta sección:
-
-docs/login.png
-
-docs/menu.png
-
-docs/add_task.png
-
-docs/view_tasks.png
-
 📝 Observaciones
 
 El almacenamiento de tareas es volátil (en memoria).
